@@ -24,8 +24,13 @@ dash_app.title = "Dashboard Solar - Proyecto Hidrógeno"
 
 # Obtener fechas mínimas y máximas para inicializar el selector
 _df_init = get_solar_data()
-min_date = _df_init['timestamp'].min().date()
-max_date = _df_init['timestamp'].max().date()
+if not _df_init.empty and 'timestamp' in _df_init.columns:
+    min_date = _df_init['timestamp'].min().date()
+    max_date = _df_init['timestamp'].max().date()
+else:
+    # Valores por defecto si no hay datos
+    min_date = datetime.now().date()
+    max_date = datetime.now().date()
 del _df_init
 
 # ==================== RUTAS FLASK ====================
