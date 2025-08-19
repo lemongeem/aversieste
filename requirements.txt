@@ -1,8 +1,8 @@
-Flask>=3.0.0,<4.0.0
-dash>=2.16.0,<3.0.0
-dash-bootstrap-components>=1.5.0,<2.0.0
-pandas>=2.2.0,<3.0.0
-plotly>=5.17.0,<6.0.0
-numpy>=1.26.0,<2.0.0
-SQLAlchemy>=2.0.23,<3.0.0
-gunicorn>=21.2.0,<22.0.0 
+Flask
+dash
+dash-bootstrap-components
+pandas
+plotly
+numpy
+SQLAlchemy
+gunicorn
