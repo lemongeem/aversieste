@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Datos de Usuarios</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 left-frame">
+                <h2>Menú</h2>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="#" id="calculate">Calcular Promedios</a></li>
+                    <li class="list-group-item"><a href="{{ url_for('calculo') }}">Cálculo</a></li>
+                </ul>
+                <div id="result"></div>
+            </div>
+            <div class="col-md-9 right-frame">
+                <h1>Datos de Usuarios</h1>
+                <input type="text" id="search" class="form-control" placeholder="Buscar...">
+                <table id="userTable" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>TIMESTAMP</th>
+                            <th>RECORD</th>
+                            <th>Batt_Volt_Min</th>
+                            <th>Tempair_Avg</th>
+                            <th>Tempair_Max</th>
+                            <th>Tempair_TMx</th>
+                            <th>Tempair_Min</th>
+                            <th>Tempair_TMn</th>
+                            <th>humrel_Avg</th>
+                            <th>humrel_Max</th>
+                            <th>humrel_TMx</th>
+                            <th>humrel_Min</th>
+                            <th>humrel_TMn</th>
+                            <th>Precip_Tot</th>
+                            <th>Presion_Avg</th>
+                            <th>SlrW_Avg</th>
+                            <th>Temp_C1</th>
+                            <th>Temp_C2</th>
+                            <th>Temp_C3</th>
+                            <th>Temp_C4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for dato in datos %}
+                        <tr>
+                            <td>{{ dato[0] }}</td>
+                            <td>{{ dato[1] }}</td>
+                            <td>{{ dato[2] }}</td>
+                            <td>{{ dato[3] }}</td>
+                            <td>{{ dato[4] }}</td>
+                            <td>{{ dato[5] }}</td>
+                            <td>{{ dato[6] }}</td>
+                            <td>{{ dato[7] }}</td>
+                            <td>{{ dato[8] }}</td>
+                            <td>{{ dato[9] }}</td>
+                            <td>{{ dato[10] }}</td>
+                            <td>{{ dato[11] }}</td>
+                            <td>{{ dato[12] }}</td>
+                            <td>{{ dato[13] }}</td>
+                            <td>{{ dato[14] }}</td>
+                            <td>{{ dato[15] }}</td>
+                            <td>{{ dato[16] }}</td>
+                            <td>{{ dato[17] }}</td>
+                            <td>{{ dato[18] }}</td>
+                            <td>{{ dato[19] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

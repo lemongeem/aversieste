@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio - Sistema Solar{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-4">
+                    <i class="fas fa-solar-panel me-3"></i>
+                    Sistema de Monitoreo Solar
+                </h1>
+                <p class="lead mb-4">
+                    Plataforma avanzada para el análisis y cálculo energético de sistemas fotovoltaicos. 
+                    Monitoreo en tiempo real, cálculos de eficiencia y análisis predictivo.
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="/dashboard/" class="btn btn-primary btn-lg">
+                        <i class="fas fa-chart-line me-2"></i>Ver Dashboard
+                    </a>
+                    <a href="/calculations" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-calculator me-2"></i>Calculadora
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <i class="fas fa-solar-panel" style="font-size: 8rem; color: var(--primary-color);"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Métricas Principales -->
+<section class="container mb-5">
+    <h2 class="text-center mb-4">
+        <i class="fas fa-tachometer-alt me-2"></i>Métricas en Tiempo Real
+    </h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card metric-card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-sun feature-icon"></i>
+                    <h3 class="metric-value">{{ "%.1f"|format(avg_irradiance) }}</h3>
+                    <p class="card-text">W/m²</p>
+                    <small class="text-muted">Irradiancia Promedio</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card metric-card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-arrow-up feature-icon"></i>
+                    <h3 class="metric-value">{{ "%.1f"|format(max_irradiance) }}</h3>
+                    <p class="card-text">W/m²</p>
+                    <small class="text-muted">Irradiancia Máxima</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card metric-card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-bolt feature-icon"></i>
+                    <h3 class="metric-value">{{ "%.2f"|format(total_energy) }}</h3>
+                    <p class="card-text">kWh</p>
+                    <small class="text-muted">Energía Generada</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Características del Sistema -->
+<section class="container mb-5">
+    <h2 class="text-center mb-5">
+        <i class="fas fa-star me-2"></i>Características Principales
+    </h2>
+    <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <i class="fas fa-chart-line feature-icon"></i>
+                    <h5 class="card-title">Monitoreo en Tiempo Real</h5>
+                    <p class="card-text">Visualización interactiva de datos solares con actualizaciones automáticas.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <i class="fas fa-calculator feature-icon"></i>
+                    <h5 class="card-title">Cálculos Avanzados</h5>
+                    <p class="card-text">Método del trapecio para cálculo preciso de energía generada.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <i class="fas fa-cloud-sun feature-icon"></i>
+                    <h5 class="card-title">Simulación Climática</h5>
+                    <p class="card-text">Análisis de rendimiento bajo diferentes condiciones climáticas.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <i class="fas fa-download feature-icon"></i>
+                    <h5 class="card-title">Exportación de Datos</h5>
+                    <p class="card-text">Descarga de resultados en formato CSV para análisis externo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tecnologías Utilizadas -->
+<section class="container mb-5">
+    <div class="card">
+        <div class="card-header">
+            <h3><i class="fas fa-cogs me-2"></i>Tecnologías Utilizadas</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-server me-2"></i>Backend</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success me-2"></i>Flask - Framework web</li>
+                        <li><i class="fas fa-check text-success me-2"></i>SQLAlchemy - ORM</li>
+                        <li><i class="fas fa-check text-success me-2"></i>PostgreSQL - Base de datos</li>
+                        <li><i class="fas fa-check text-success me-2"></i>NumPy & Pandas - Procesamiento de datos</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5><i class="fas fa-desktop me-2"></i>Frontend</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success me-2"></i>Dash - Framework de visualización</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Plotly - Gráficos interactivos</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Bootstrap - Diseño responsive</li>
+                        <li><i class="fas fa-check text-success me-2"></i>JavaScript - Interactividad</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Enlaces Rápidos -->
+<section class="container mb-5">
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-chart-line feature-icon"></i>
+                    <h4>Dashboard Interactivo</h4>
+                    <p>Explora los datos solares con gráficos interactivos y análisis en tiempo real.</p>
+                    <a href="/dashboard/" class="btn btn-primary">
+                        <i class="fas fa-arrow-right me-2"></i>Acceder al Dashboard
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-calculator feature-icon"></i>
+                    <h4>Calculadora de Eficiencia</h4>
+                    <p>Calcula la eficiencia solar y optimiza el rendimiento de tus paneles.</p>
+                    <a href="/calculations" class="btn btn-primary">
+                        <i class="fas fa-arrow-right me-2"></i>Ir a Cálculos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
