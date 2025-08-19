@@ -73,6 +73,11 @@ def get_solar_data(start_date=None, end_date=None, column="slrw_avg"):
                     ORDER BY timestamp
                 ''')
                 df = pd.read_sql(query, conn)
+        
+        # Asegurar que la columna timestamp sea datetime
+        if not df.empty and 'timestamp' in df.columns:
+            df['timestamp'] = pd.to_datetime(df['timestamp'])
+        
         return df
     except Exception as e:
         print(f"Error obteniendo datos: {e}")
@@ -81,3 +86,4 @@ def get_solar_data(start_date=None, end_date=None, column="slrw_avg"):
 
 # Inicializar la base de datos al importar el módulo
 init_db()
+
